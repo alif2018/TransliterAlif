@@ -14,6 +14,8 @@
   <div id="content-header">
     <div class="padding">
       <h1>Transliterasi Alif</h1>
+      <!-- TOMBOL INFO (Tutorial & Download) -->
+      <button id="info-btn" title="Cara Install">ⓘ</button>
     </div>
   </div>
 
@@ -22,7 +24,7 @@
     <div class="padding">
       <p class="instruction">Tekan tombol Transliterasi untuk menulis</p>
       
-      <!-- GRID TOMBOL KARAKTER -->
+      <!-- GRID TOMBOL KARAKTER (6 Kolom) -->
       <div class="button-grid">
         <button id="a1">Ā</button> <button id="a2">ā</button> 
         <button id="i1">Ī</button> <button id="i2">ī</button> 
@@ -38,23 +40,51 @@
         
         <button id="z1">Ż</button> <button id="z2">ż</button> 
         <button id="z3">Ẓ</button> <button id="z4">ẓ</button> 
-        <button id="ain">ʿ</button> <button id="hamzah">ʾ</button>      </div>
+        <button id="ain">ʿ</button> <button id="hamzah">ʾ</button>
+      </div>
 
-      <!-- GRID TOMBOL AKSI (Spasi, Backspace, Del) -->
-<!-- GRID TOMBOL AKSI (Spasi, Enter, Backspace, Del) -->
-<div class="action-grid">
-  <button id="btn-space" class="action-btn">Spasi</button>
-  <button id="btn-enter" class="action-btn">Enter</button>
-  <button id="btn-backspace" class="action-btn">Backspace</button>
-  <button id="btn-del" class="action-btn">Del</button>
-</div>
+      <!-- GRID TOMBOL AKSI (4 Kolom) -->
+      <div class="action-grid">
+        <button id="btn-space" class="action-btn">Spasi</button>
+        <button id="btn-enter" class="action-btn">Enter</button>
+        <button id="btn-backspace" class="action-btn">Backspace</button>
+        <button id="btn-del" class="action-btn">Del</button>
+      </div>
+
     </div>
   </div>
   
-  <!-- FOOTER / STATUS -->
+  <!-- FOOTER STATUS -->
   <div id="supportedVersion"></div>
-  
-  <!-- SCRIPT -->
+
+  <!-- MODAL TUTORIAL (Tersembunyi secara default) -->
+  <div id="tutorial-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Cara Install Add-in</h2>
+      <p>Ikuti langkah berikut untuk memasang di Microsoft Word:</p>
+      <ol>
+        <li>Unduh file <b>transliteralif.xml</b> di bawah.</li>
+        <li>Buka Microsoft Word.</li>
+        <li>Klik menu <b>Home</b> &gt; <b>Add-ins</b> &gt; <b>More Add-ins</b>.</li>
+        <li>Pilih tab <b>MY ADD-INS</b>.</li>
+        <li>Klik <b>Upload My Add-in</b>, lalu pilih file XML yang sudah diunduh.</li>
+      </ol>
+      
+      <!-- Tombol Download (Akan disembunyikan oleh JS jika dibuka di dalam Word) -->
+      <!-- Tombol Download (SVG) -->
+<a href="transliteralif.xml" download id="download-btn" class="download-btn">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+    <polyline points="7 10 12 15 17 10"></polyline>
+    <line x1="12" y1="15" x2="12" y2="3"></line>
+  </svg>
+  Download Transliterasi Alif (XML)
+</a>
+    </div>
+  </div>
+
+  <!-- SCRIPT JS -->
   <script src="home.js"></script>
 </body>
 </html>
