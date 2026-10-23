@@ -1,4 +1,4 @@
-=/* =========================================
+/* =========================================
    1. RESET & BASE
    ========================================= */
 * {
@@ -7,7 +7,7 @@
 
 body {
     margin: 0;
-    font-family: 'Times New Roman', Times, serif; /* Font Serif Klasik */
+    font-family: 'Times New Roman', Times, serif; 
     background-color: #f3f2f1; 
     height: 100vh;
     display: flex;
@@ -16,10 +16,10 @@ body {
 }
 
 /* =========================================
-   2. HEADER BIRU
+   2. HEADER BIRU & TOMBOL INFO
    ========================================= */
 #content-header {
-    background: #0078d4; /* Biru Microsoft */
+    background: #0078d4; 
     color: #fff;
     padding: 12px 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -38,26 +38,59 @@ body {
     text-align: center;
 }
 
-/* Tombol Info (ⓘ) */
+/* Tombol Info (Kuning, Kapsul, Berdenyut) */
 #info-btn {
     position: absolute;
     right: 15px;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 24px;
+    top: 50%; 
+    transform: translateY(-50%); 
+    
+    /* Warna Kontras (Kuning Emas) */
+    background: #ffc107; 
+    border: 1px solid #ffffff;
+    border-radius: 20px; /* Bentuk Kapsul */
+    height: 32px;
+    padding: 0 12px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a; 
+    
     cursor: pointer;
-    padding: 0;
-    box-shadow: none;
-    transition: transform 0.2s, color 0.2s;
-    font-family: sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: all 0.2s ease-in-out;
+    
+    /* Animasi berdenyut */
+    animation: pulse-glow 2s infinite;
 }
 
+#info-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+#info-btn span {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 6px;
+}
+
+/* Animasi Glow/Denyut */
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(255, 193, 7, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+}
+
+/* Efek Hover: Animasi berhenti, tombol membesar */
 #info-btn:hover {
-    transform: scale(1.2);
-    background: transparent;
-    border: none;
-    color: #ffeb3b;
+    background: #ffffff;
+    color: #0078d4; 
+    transform: translateY(-50%) scale(1.05);
+    animation: none; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
 /* =========================================
@@ -72,7 +105,7 @@ body {
 
 .padding {
     padding: 15px;
-    max-width: 600px; /* Agar tidak melar di layar lebar */
+    max-width: 600px; 
     margin: 0 auto; 
 }
 
@@ -139,7 +172,7 @@ body {
 }
 
 .action-btn {
-    font-family: 'Segoe UI', Tahoma, sans-serif; /* Sans-serif agar teks jelas */
+    font-family: 'Segoe UI', Tahoma, sans-serif; 
     font-size: 13px; 
     font-weight: 600; 
     color: #323130;
@@ -183,14 +216,14 @@ body {
    7. MODAL TUTORIAL & DOWNLOAD
    ========================================= */
 .modal {
-    display: none; /* Tersembunyi default */
+    display: none; 
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.6); /* Overlay gelap */
+    background-color: rgba(0,0,0,0.6); 
 }
 
 .modal-content {
@@ -238,7 +271,7 @@ body {
     display: flex; 
     align-items: center;
     justify-content: center;
-    gap: 8px; /* Jarak antara ikon SVG dan teks */
+    gap: 8px; 
     background-color: #0078d4;
     color: white;
     padding: 12px;
