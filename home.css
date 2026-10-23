@@ -1,12 +1,13 @@
-/* ==== Reset Dasar ==== */
+=/* =========================================
+   1. RESET & BASE
+   ========================================= */
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    /* Menggunakan font Serif untuk seluruh halaman */
-    font-family: 'Times New Roman', Times, serif; 
+    font-family: 'Times New Roman', Times, serif; /* Font Serif Klasik */
     background-color: #f3f2f1; 
     height: 100vh;
     display: flex;
@@ -14,14 +15,19 @@ body {
     width: 100%;
 }
 
-/* ==== Header Biru ==== */
+/* =========================================
+   2. HEADER BIRU
+   ========================================= */
 #content-header {
-    background: #0078d4; 
+    background: #0078d4; /* Biru Microsoft */
     color: #fff;
     padding: 12px 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex-shrink: 0;
-    text-align: center; /* Teks header ke tengah */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 #content-header h1 {
@@ -29,9 +35,34 @@ body {
     font-size: 22px; 
     font-weight: bold;
     letter-spacing: 0.5px;
+    text-align: center;
 }
 
-/* ==== Area Konten Utama ==== */
+/* Tombol Info (ⓘ) */
+#info-btn {
+    position: absolute;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    box-shadow: none;
+    transition: transform 0.2s, color 0.2s;
+    font-family: sans-serif;
+}
+
+#info-btn:hover {
+    transform: scale(1.2);
+    background: transparent;
+    border: none;
+    color: #ffeb3b;
+}
+
+/* =========================================
+   3. AREA KONTEN UTAMA
+   ========================================= */
 #content-main {
     flex-grow: 1;
     overflow-y: auto;
@@ -41,12 +72,10 @@ body {
 
 .padding {
     padding: 15px;
-    /* Membatasi lebar maksimal konten agar tidak terlalu melar saat panel lebar */
-    max-width: 600px; 
+    max-width: 600px; /* Agar tidak melar di layar lebar */
     margin: 0 auto; 
 }
 
-/* ==== Teks Instruksi ==== */
 .instruction {
     margin-top: 0;
     margin-bottom: 15px;
@@ -57,7 +86,9 @@ body {
     text-align: center;
 }
 
-/* ==== Grid Tombol Karakter (6 Kolom Rapi) ==== */
+/* =========================================
+   4. GRID & TOMBOL KARAKTER
+   ========================================= */
 .button-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr); 
@@ -65,88 +96,80 @@ body {
     margin-bottom: 20px; 
 }
 
-/* ==== Desain Tombol Karakter ==== */
 .button-grid button {
-    font-family: inherit; /* Mewarisi Times New Roman */
+    font-family: inherit; 
     font-size: 26px; 
     font-weight: bold; 
     color: #000;
-    
     background-color: #ffffff;
     border: 1.5px solid #8a8886; 
     border-radius: 6px;
     height: 55px; 
-    
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
     transition: all 0.1s ease-in-out;
     padding: 0;
 }
 
-/* Efek Hover Tombol Karakter */
 .button-grid button:hover {
     background-color: #f3f2f1;
     border-color: #0078d4; 
     color: #0078d4;
 }
 
-/* Efek Klik Tombol Karakter */
 .button-grid button:active {
     background-color: #edebe9;
     transform: scale(0.95);
     box-shadow: none;
 }
 
-/* ==== Grid Tombol Aksi (4 Kolom Sejajar) ==== */
+/* =========================================
+   5. GRID & TOMBOL AKSI (Spasi, Enter, Backspace, Del)
+   ========================================= */
 .action-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 Kolom untuk Spasi, Enter, Backspace, Del */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 8px;
     margin-top: 15px; 
     padding-top: 15px;
     border-top: 2px dashed #d2d0ce; 
 }
 
-/* ==== Desain Tombol Aksi ==== */
 .action-btn {
-    font-family: 'Segoe UI', Tahoma, sans-serif; /* Pakai Sans-serif agar teks mudah dibaca */
-    font-size: 13px; /* Ukuran disesuaikan agar "Backspace" muat di 4 kolom */
+    font-family: 'Segoe UI', Tahoma, sans-serif; /* Sans-serif agar teks jelas */
+    font-size: 13px; 
     font-weight: 600; 
     color: #323130;
-    
     background-color: #f3f2f1; 
     border: 1px solid #d2d0ce;
     border-radius: 6px;
     height: 45px;
-    
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    
     box-shadow: none; 
     transition: all 0.1s ease-in-out;
     padding: 0;
 }
 
-/* Efek Hover Tombol Aksi */
 .action-btn:hover {
     background-color: #e1dfdd;
     border-color: #8a8886;
     color: #000;
 }
 
-/* Efek Klik Tombol Aksi */
 .action-btn:active {
     background-color: #d2d0ce;
     transform: scale(0.95);
 }
 
-/* ==== Teks Status (Footer) ==== */
+/* =========================================
+   6. FOOTER / STATUS TEXT
+   ========================================= */
 #supportedVersion {
     margin-top: 15px;
     padding-bottom: 15px;
@@ -154,4 +177,79 @@ body {
     color: #605e5c;
     text-align: center;
     font-style: italic;
+}
+
+/* =========================================
+   7. MODAL TUTORIAL & DOWNLOAD
+   ========================================= */
+.modal {
+    display: none; /* Tersembunyi default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); /* Overlay gelap */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 85%;
+    max-width: 400px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #0078d4;
+    font-size: 18px;
+}
+
+.modal-content ol {
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #888;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* Tombol Download dengan SVG */
+.download-btn {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Jarak antara ikon SVG dan teks */
+    background-color: #0078d4;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    transition: background 0.2s;
+}
+
+.download-btn:hover {
+    background-color: #005a9e;
+    color: white;
 }
