@@ -1,0 +1,157 @@
+/* ==== Reset Dasar ==== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    /* Menggunakan font Serif untuk seluruh halaman */
+    font-family: 'Times New Roman', Times, serif; 
+    background-color: #f3f2f1; 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* ==== Header Biru ==== */
+#content-header {
+    background: #0078d4; 
+    color: #fff;
+    padding: 12px 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    text-align: center; /* Teks header ke tengah */
+}
+
+#content-header h1 {
+    margin: 0;
+    font-size: 22px; 
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* ==== Area Konten Utama ==== */
+#content-main {
+    flex-grow: 1;
+    overflow-y: auto;
+    background: #ffffff;
+    width: 100%;
+}
+
+.padding {
+    padding: 15px;
+    /* Membatasi lebar maksimal konten agar tidak terlalu melar saat panel lebar */
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+/* ==== Teks Instruksi ==== */
+.instruction {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #323130;
+    font-weight: bold;
+    font-style: italic; 
+    text-align: center;
+}
+
+/* ==== Grid Tombol Karakter (6 Kolom Rapi) ==== */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 8px; 
+    margin-bottom: 20px; 
+}
+
+/* ==== Desain Tombol Karakter ==== */
+.button-grid button {
+    font-family: inherit; /* Mewarisi Times New Roman */
+    font-size: 26px; 
+    font-weight: bold; 
+    color: #000;
+    
+    background-color: #ffffff;
+    border: 1.5px solid #8a8886; 
+    border-radius: 6px;
+    height: 55px; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    transition: all 0.1s ease-in-out;
+    padding: 0;
+}
+
+/* Efek Hover Tombol Karakter */
+.button-grid button:hover {
+    background-color: #f3f2f1;
+    border-color: #0078d4; 
+    color: #0078d4;
+}
+
+/* Efek Klik Tombol Karakter */
+.button-grid button:active {
+    background-color: #edebe9;
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+/* ==== Grid Tombol Aksi (4 Kolom Sejajar) ==== */
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Kolom untuk Spasi, Enter, Backspace, Del */
+    gap: 8px;
+    margin-top: 15px; 
+    padding-top: 15px;
+    border-top: 2px dashed #d2d0ce; 
+}
+
+/* ==== Desain Tombol Aksi ==== */
+.action-btn {
+    font-family: 'Segoe UI', Tahoma, sans-serif; /* Pakai Sans-serif agar teks mudah dibaca */
+    font-size: 13px; /* Ukuran disesuaikan agar "Backspace" muat di 4 kolom */
+    font-weight: 600; 
+    color: #323130;
+    
+    background-color: #f3f2f1; 
+    border: 1px solid #d2d0ce;
+    border-radius: 6px;
+    height: 45px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    box-shadow: none; 
+    transition: all 0.1s ease-in-out;
+    padding: 0;
+}
+
+/* Efek Hover Tombol Aksi */
+.action-btn:hover {
+    background-color: #e1dfdd;
+    border-color: #8a8886;
+    color: #000;
+}
+
+/* Efek Klik Tombol Aksi */
+.action-btn:active {
+    background-color: #d2d0ce;
+    transform: scale(0.95);
+}
+
+/* ==== Teks Status (Footer) ==== */
+#supportedVersion {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    color: #605e5c;
+    text-align: center;
+    font-style: italic;
+}
