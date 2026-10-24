@@ -1,5 +1,4 @@
 /* =========================================
-   1. RESET & BASE/* =========================================
    1. RESET & BASE
    ========================================= */
 * {
@@ -45,24 +44,18 @@ body {
     right: 15px;
     top: 50%; 
     transform: translateY(-50%); 
-    
-    /* Warna Kontras (Kuning Emas) */
     background: #ffc107; 
     border: 1px solid #ffffff;
-    border-radius: 20px; /* Bentuk Kapsul */
+    border-radius: 20px; 
     height: 32px;
     padding: 0 12px;
-    
     display: flex;
     align-items: center;
     justify-content: center;
     color: #1a1a1a; 
-    
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     transition: all 0.2s ease-in-out;
-    
-    /* Animasi berdenyut */
     animation: pulse-glow 2s infinite;
 }
 
@@ -78,14 +71,12 @@ body {
     margin-left: 6px;
 }
 
-/* Animasi Glow/Denyut */
 @keyframes pulse-glow {
     0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); }
     70% { box-shadow: 0 0 0 8px rgba(255, 193, 7, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
 }
 
-/* Efek Hover: Animasi berhenti, tombol membesar */
 #info-btn:hover {
     background: #ffffff;
     color: #0078d4; 
@@ -225,15 +216,21 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.6); 
+    overflow-y: auto; /* Memungkinkan scroll di background overlay */
 }
 
 .modal-content {
     background-color: #fff;
-    margin: 10% auto;
+    margin: 20px auto; /* Margin vertikal diperkecil */
     padding: 20px;
     border-radius: 8px;
-    width: 85%;
+    width: 92%; /* Lebar ditambah agar margin kiri-kanan sempit */
     max-width: 400px;
+    
+    /* Kunci perbaikan scroll */
+    max-height: calc(100vh - 40px); 
+    overflow-y: auto; 
+    
     font-family: 'Segoe UI', Tahoma, sans-serif;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     position: relative;
@@ -288,6 +285,7 @@ body {
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, sans-serif;
     transition: background 0.2s;
+    margin-top: 15px; /* Jarak tambahan dari teks di atasnya */
 }
 
 .download-btn:hover {
@@ -299,8 +297,8 @@ body {
    8. INFO KOMPATIBILITAS DI MODAL
    ========================================= */
 .compatibility-info {
-    background-color: #f3f9fe; /* Biru sangat muda */
-    border-left: 4px solid #0078d4; /* Garis aksen biru */
+    background-color: #f3f9fe; 
+    border-left: 4px solid #0078d4; 
     padding: 10px 15px;
     margin-bottom: 20px;
     border-radius: 4px;
@@ -323,290 +321,4 @@ body {
     margin: 8px 0 0 0;
     color: #605e5c;
     font-size: 12px;
-}
-   ========================================= */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: 'Times New Roman', Times, serif; 
-    background-color: #f3f2f1; 
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-/* =========================================
-   2. HEADER BIRU & TOMBOL INFO
-   ========================================= */
-#content-header {
-    background: #0078d4; 
-    color: #fff;
-    padding: 12px 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-#content-header h1 {
-    margin: 0;
-    font-size: 22px; 
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    text-align: center;
-}
-
-/* Tombol Info (Kuning, Kapsul, Berdenyut) */
-#info-btn {
-    position: absolute;
-    right: 15px;
-    top: 50%; 
-    transform: translateY(-50%); 
-    
-    /* Warna Kontras (Kuning Emas) */
-    background: #ffc107; 
-    border: 1px solid #ffffff;
-    border-radius: 20px; /* Bentuk Kapsul */
-    height: 32px;
-    padding: 0 12px;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1a1a1a; 
-    
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    transition: all 0.2s ease-in-out;
-    
-    /* Animasi berdenyut */
-    animation: pulse-glow 2s infinite;
-}
-
-#info-btn svg {
-    width: 18px;
-    height: 18px;
-}
-
-#info-btn span {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    margin-left: 6px;
-}
-
-/* Animasi Glow/Denyut */
-@keyframes pulse-glow {
-    0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); }
-    70% { box-shadow: 0 0 0 8px rgba(255, 193, 7, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
-}
-
-/* Efek Hover: Animasi berhenti, tombol membesar */
-#info-btn:hover {
-    background: #ffffff;
-    color: #0078d4; 
-    transform: translateY(-50%) scale(1.05);
-    animation: none; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
-
-/* =========================================
-   3. AREA KONTEN UTAMA
-   ========================================= */
-#content-main {
-    flex-grow: 1;
-    overflow-y: auto;
-    background: #ffffff;
-    width: 100%;
-}
-
-.padding {
-    padding: 15px;
-    max-width: 600px; 
-    margin: 0 auto; 
-}
-
-.instruction {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 16px;
-    color: #323130;
-    font-weight: bold;
-    font-style: italic; 
-    text-align: center;
-}
-
-/* =========================================
-   4. GRID & TOMBOL KARAKTER
-   ========================================= */
-.button-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); 
-    gap: 8px; 
-    margin-bottom: 20px; 
-}
-
-.button-grid button {
-    font-family: inherit; 
-    font-size: 26px; 
-    font-weight: bold; 
-    color: #000;
-    background-color: #ffffff;
-    border: 1.5px solid #8a8886; 
-    border-radius: 6px;
-    height: 55px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-    transition: all 0.1s ease-in-out;
-    padding: 0;
-}
-
-.button-grid button:hover {
-    background-color: #f3f2f1;
-    border-color: #0078d4; 
-    color: #0078d4;
-}
-
-.button-grid button:active {
-    background-color: #edebe9;
-    transform: scale(0.95);
-    box-shadow: none;
-}
-
-/* =========================================
-   5. GRID & TOMBOL AKSI (Spasi, Enter, Backspace, Del)
-   ========================================= */
-.action-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 8px;
-    margin-top: 15px; 
-    padding-top: 15px;
-    border-top: 2px dashed #d2d0ce; 
-}
-
-.action-btn {
-    font-family: 'Segoe UI', Tahoma, sans-serif; 
-    font-size: 13px; 
-    font-weight: 600; 
-    color: #323130;
-    background-color: #f3f2f1; 
-    border: 1px solid #d2d0ce;
-    border-radius: 6px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: none; 
-    transition: all 0.1s ease-in-out;
-    padding: 0;
-}
-
-.action-btn:hover {
-    background-color: #e1dfdd;
-    border-color: #8a8886;
-    color: #000;
-}
-
-.action-btn:active {
-    background-color: #d2d0ce;
-    transform: scale(0.95);
-}
-
-/* =========================================
-   6. FOOTER / STATUS TEXT
-   ========================================= */
-#supportedVersion {
-    margin-top: 15px;
-    padding-bottom: 15px;
-    font-size: 14px;
-    color: #605e5c;
-    text-align: center;
-    font-style: italic;
-}
-
-/* =========================================
-   7. MODAL TUTORIAL & DOWNLOAD
-   ========================================= */
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6); 
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 8px;
-    width: 85%;
-    max-width: 400px;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    position: relative;
-}
-
-.modal-content h2 {
-    margin-top: 0;
-    color: #0078d4;
-    font-size: 18px;
-}
-
-.modal-content ol {
-    padding-left: 20px;
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #888;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.close-btn:hover {
-    color: #000;
-}
-
-/* Tombol Download dengan SVG */
-.download-btn {
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    gap: 8px; 
-    background-color: #0078d4;
-    color: white;
-    padding: 12px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    transition: background 0.2s;
-}
-
-.download-btn:hover {
-    background-color: #005a9e;
-    color: white;
 }
