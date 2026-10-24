@@ -63,31 +63,39 @@
   <!-- FOOTER STATUS -->
   <div id="supportedVersion"></div>
 
-  <!-- MODAL TUTORIAL (Pop-up) -->
-  <div id="tutorial-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h2>Cara Install Add-in</h2>
-      <p>Ikuti langkah berikut untuk memasang di Microsoft Word:</p>
-      <ol>
-        <li>Unduh file <b>transliteralif.xml</b> di bawah.</li>
-        <li>Buka Microsoft Word.</li>
-        <li>Klik menu <b>Home</b> &gt; <b>Add-ins</b> &gt; <b>More Add-ins</b>.</li>
-        <li>Pilih tab <b>MY ADD-INS</b>.</li>
-        <li>Klik <b>Upload My Add-in</b>, lalu pilih file XML yang sudah diunduh.</li>
-      </ol>
-      
-      <!-- Tombol Download dengan SVG -->
-      <a href="transliteralif.xml" download id="download-btn" class="download-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="7 10 12 15 17 10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-        Download Transliterasi Alif (XML)
-      </a>
-    </div>
+<!-- MODAL TUTORIAL (Pop-up) -->
+<div id="tutorial-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Cara Install Add-in</h2>
+    <p>Ikuti langkah berikut untuk memasang di Microsoft Word:</p>
+    <ol>
+      <li>Unduh file <b>transliteralif.xml</b> di bawah.</li>
+      <li>Buka aplikasi <b>Microsoft Word</b>.</li>
+      <li>
+        Cari menu Add-ins. Lokasinya bisa berbeda tergantung versi Word Anda:
+        <ul>
+          <li>Jika tab <b>Insert</b> ada: Klik <b>Insert</b> &gt; <b>Get Add-ins</b> (atau <b>My Add-ins</b>).</li>
+          <li>Jika tab <b>Home</b> ada: Klik <b>Home</b> &gt; <b>Add-ins</b>.</li>
+        </ul>
+      </li>
+      <li>Pilih tab <b>MY ADD-INS</b> (Add-in Saya).</li>
+      <li>Klik <b>Upload My Add-in</b> (Unggah Add-in Saya) di bagian bawah.</li>
+      <li>Pilih file XML yang sudah diunduh, lalu klik <b>OK</b>.</li>
+    </ol>
+    <p><i>*Setelah terpasang, Anda bisa mengakses add-in ini lewat menu Insert atau mem-pin-nya ke Tab Home.</i></p>
+    
+    <!-- Tombol Download dengan SVG -->
+    <a href="transliteralif.xml" download id="download-btn" class="download-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Download Transliterasi Alif (XML)
+    </a>
   </div>
+</div>
 
   <script src="home.js"></script>
 </body>
