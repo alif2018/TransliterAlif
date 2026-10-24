@@ -1,41 +1,36 @@
 'use strict';
 
-// Variabel untuk mengecek apakah kita sedang berjalan di dalam Word atau di Browser biasa
 let isRunningInWord = false;
 
 (function () {
     Office.onReady(function (info) {
         $(document).ready(function () {
             
-            // 1. Cek Lingkungan (Word vs Browser/HTML Editor)
+            // 1. Cek Lingkungan (Word vs Browser)
             if (info.host === Office.HostType.Word && Office.context.requirements.isSetSupported('WordApi', 1.1)) {
                 isRunningInWord = true;
                 $('#supportedVersion').html('Berjalan di Microsoft Word.');
                 
-                // Sembunyikan tombol download di dalam Modal karena pengguna sudah berada di Word
+                // Sembunyikan tombol Panduan & Download di dalam Word
+                $('#info-btn').hide(); 
                 $('#download-btn').hide(); 
             } else {
-                $('#supportedVersion').html('Mode Web: Klik ikon (ⓘ) di pojok kanan atas untuk panduan install.');
-                
-                // Tampilkan tombol download manifest
+                $('#supportedVersion').html('Mode Web: Klik ikon (ⓘ) untuk panduan install.');
                 $('#download-btn').show();
             }
 
-            // 2. Daftarkan semua event klik tombol transliterasi dan aksi
+            // 2. Daftarkan Event Tombol
             bindButtonEvents();
 
-            // 3. Logika Modal (Pop-up) Tutorial
-            // Buka modal saat tombol info diklik
+            // 3. Logika Modal Tutorial
             $('#info-btn').click(function() {
                 $('#tutorial-modal').fadeIn(200);
             });
 
-            // Tutup modal saat tombol silang (X) diklik
             $('.close-btn').click(function() {
                 $('#tutorial-modal').fadeOut(200);
             });
 
-            // Tutup modal jika area gelap di luar kotak (overlay) diklik
             $(window).click(function(event) {
                 if ($(event.target).is('#tutorial-modal')) {
                     $('#tutorial-modal').fadeOut(200);
@@ -46,10 +41,9 @@ let isRunningInWord = false;
     });
 
     // ==========================================
-    // FUNGSI UNTUK MENDAFTARKAN EVENT KLIK TOMBOL
+    // FUNGSI MENDAFTARKAN TOMBOL
     // ==========================================
     function bindButtonEvents() {
-        // Pemetaan ID Tombol ke Karakter (Ringkas & Mudah dikelola)
         const charMap = {
             'a1': 'Ā', 'a2': 'ā', 
             'i1': 'Ī', 'i2': 'ī', 
@@ -65,14 +59,12 @@ let isRunningInWord = false;
             'ain': 'ʿ', 'hamzah': 'ʾ'
         };
 
-        // Looping untuk mendaftarkan klik pada semua tombol karakter
         for (const [id, char] of Object.entries(charMap)) {
             $('#' + id).click(function () {
                 insertCharacter(char);
             });
         }
 
-        // Daftarkan klik pada tombol aksi bawah
         $('#btn-space').click(function () { insertCharacter(' '); });
         $('#btn-enter').click(insertEnter);
         $('#btn-backspace').click(deleteSelection);
@@ -80,57 +72,54 @@ let isRunningInWord = false;
     }
 
     // ==========================================
-    // FUNGSI UTAMA (Menyisipkan ke Word / Mode Preview)
+    // FUNGSI UTAMA
     // ==========================================
 
-    // Menyisipkan karakter biasa & spasi
     function insertCharacter(char) {
         if (!isRunningInWord) {
-            alert('Mode Preview: Menyisipkan karakter "' + char + '"\n\n(Buka di Microsoft Word untuk fungsi asli)');
+            alert('Mode Preview: Menyisipkan karakter "' + char + '"');
             return;
         }
 
         Word.run(function (context) {
             const range = context.document.getSelection();
-            // InsertLocation.replace akan menimpa teks yang sedang disorot (jika ada)
-            range.insertText(char, Word.InsertLocation.replace); 
+            
+            // Sisipkan teks
+            range.insertText(char, Word.InsertLocation.replace);
+            
+            // KUNCI PERBAIKAN: Paksa kursor pindah ke ujung kanan setelah mengetik
+            range.select(Word.InsertLocation.end);
+            
             return context.sync();
         }).catch(handleError);
     }
 
-    // Menyisipkan Enter (Baris Baru)
     function insertEnter() {
         if (!isRunningInWord) {
-            alert('Mode Preview: Menyisipkan Enter / Baris Baru');
+            alert('Mode Preview: Menyisipkan Enter');
             return;
         }
 
         Word.run(function (context) {
             const range = context.document.getSelection();
-            // insertParagraph adalah cara paling tepat membuat baris baru di Word
             range.insertParagraph(); 
             return context.sync();
         }).catch(handleError);
     }
 
-    // Menghapus teks (Backspace & Del)
     function deleteSelection() {
         if (!isRunningInWord) {
-            alert('Mode Preview: Menghapus teks yang dipilih');
+            alert('Mode Preview: Menghapus teks');
             return;
         }
 
         Word.run(function (context) {
             const range = context.document.getSelection();
-            // Menghapus teks yang sedang disorot/diblok oleh kursor
             range.clear(); 
             return context.sync();
         }).catch(handleError);
     }
 
-    // ==========================================
-    // FUNGSI BANTUAN UNTUK ERROR
-    // ==========================================
     function handleError(error) {
         console.log('Error: ' + JSON.stringify(error));
         if (error instanceof OfficeExtension.Error) {
