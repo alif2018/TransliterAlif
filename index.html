@@ -81,22 +81,45 @@
         <p><i>*Tidak didukung di Office 2013 atau versi lebih lama.</i></p>
       </div>
 
-      <p>Ikuti langkah berikut untuk memasang di Microsoft Word:</p>
-      <ol>
-        <li>Unduh file <b>transliteralif.xml</b> di bawah.</li>
-        <li>Buka aplikasi <b>Microsoft Word</b>.</li>
-        <li>
-          Cari menu Add-ins. Lokasinya bisa berbeda tergantung versi Word Anda:
-          <ul>
-            <li>Jika tab <b>Insert</b> ada: Klik <b>Insert</b> &gt; <b>Get Add-ins</b> (atau <b>My Add-ins</b>).</li>
-            <li>Jika tab <b>Home</b> ada: Klik <b>Home</b> &gt; <b>Add-ins</b>.</li>
-          </ul>
-        </li>
-        <li>Pilih tab <b>MY ADD-INS</b> (Add-in Saya).</li>
-        <li>Klik <b>Upload My Add-in</b> (Unggah Add-in Saya) di bagian bawah.</li>
-        <li>Pilih file XML yang sudah diunduh, lalu klik <b>OK</b>.</li>
-      </ol>
-      <p><i>*Setelah terpasang, Anda bisa mengakses add-in ini lewat menu Insert atau mem-pin-nya ke Tab Home.</i></p>
+      <p>Ikuti panduan manual berikut untuk memasang di Microsoft Word (Desktop):</p>
+      
+      <div class="tutorial-steps">
+        <h3>Langkah 1: Buat dan Bagikan Folder</h3>
+        <ol>
+          <li>Buka Windows Explorer, buat folder baru di drive C: (contoh: <code>C:\OfficeAddins</code>).</li>
+          <li>Pindahkan file <b>XML</b> Anda ke dalam folder tersebut.</li>
+          <li>Klik kanan folder <code>OfficeAddins</code> &gt; pilih <b>Properties</b>.</li>
+          <li>Masuk ke tab <b>Sharing</b>, lalu klik tombol <b>Advanced Sharing...</b>.</li>
+          <li>Centang kotak <b>Share this folder</b>.</li>
+          <li>Klik tombol <b>Permissions</b>, pastikan grup <b>Everyone</b> mendapatkan hak akses <b>Read</b>. Klik OK.</li>
+          <li>Klik <b>Apply</b> lalu <b>OK</b>.</li>
+          <li>Kembali ke tab Sharing, lihat di bagian <b>Network Path</b>. Catat alurnya (contoh: <code>\\NAMA-PC\OfficeAddins</code>).</li>
+        </ol>
+
+        <h3>Langkah 2: Daftarkan ke Trust Center</h3>
+        <ol>
+          <li>Buka aplikasi Excel atau Word versi Desktop.</li>
+          <li>Klik menu <b>File</b> &gt; pilih <b>Options</b>.</li>
+          <li>Pilih menu <b>Trust Center</b> di panel kiri, lalu klik <b>Trust Center Settings...</b>.</li>
+          <li>Pilih menu <b>Trusted Add-in Catalogs</b>.</li>
+          <li>Pada kolom <b>Catalog Url</b>, tempelkan (paste) Network Path folder tadi (contoh: <code>\\NAMA-PC\OfficeAddins</code>).</li>
+          <li>Klik tombol <b>Add Catalog</b>.</li>
+          <li><b>Centang kotak Show in Menu</b> pada baris katalog yang baru Anda tambahkan.</li>
+          <li>Klik <b>OK</b>, lalu klik <b>OK</b> lagi untuk menutup jendela Options.</li>
+          <li><b>Tutup dan Buka Kembali (Restart)</b> aplikasi Word Anda.</li>
+        </ol>
+
+        <h3>Langkah 3: Jalankan Add-in</h3>
+        <ol>
+          <li>Buka kembali dokumen Word baru.</li>
+          <li>Masuk ke tab <b>Insert</b> di ribbon atas.</li>
+          <li>Klik tombol <b>My Add-ins</b> (atau Get Add-ins &gt; pilih tab My Add-ins).</li>
+          <li>Klik tab/opsi <b>SHARED FOLDER</b> di bagian atas jendela yang muncul.</li>
+          <li>Anda akan melihat nama Add-in yang tertera di file XML Anda.</li>
+          <li>Klik add-in tersebut, lalu klik tombol <b>Add</b>.</li>
+          <li>Tombol Add-in Anda akan muncul di ribbon (biasanya di tab Home). Klik tombol tersebut untuk membuka panel transliterasi ini!</li>
+        </ol>
+      </div>
       
       <!-- Tombol Download dengan SVG -->
       <a href="transliteralif.xml" download id="download-btn" class="download-btn">
